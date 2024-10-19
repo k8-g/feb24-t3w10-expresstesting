@@ -25,7 +25,13 @@ app.use("/users", UserController);
 
 
 app.use((error, request, response, next) => {
-	console.log("Server threw an error")
+	console.log("Server threw an error with message: " + error.message);
+
+	response.json({
+		status: 500,
+		error: error.message,
+		errorFull: JSON.stringify(error)
+	});
 
 });
 
