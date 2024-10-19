@@ -24,6 +24,12 @@ const UserController = require("./controllers/UserController.js");
 app.use("/users", UserController);
 
 
+app.use((error, request, response, next) => {
+	console.log("Server threw an error")
+
+});
+
+
 module.exports = {
 	app
 }
